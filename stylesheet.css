@@ -1,0 +1,28 @@
+div.content{
+    height: 30px;
+    width: 30px;
+    border: 3px solid black;
+}
+
+div#units{
+    background-color: yellow;
+}
+
+div#hundred{
+    background-color: palevioletred;
+}
+
+div#tens{
+    background-color: yellowgreen;
+}
+
+div.dropzone{
+    height: 527px;
+    width: 327px;
+    border: 3px solid black;
+    background-color: lightskyblue;
+    position: absolute;
+    left: 900px;
+    top: 70px;
+    z-index: 1;
+}
