@@ -1,0 +1,82 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphics Test</title>
+    <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+    <script>
+      var myArray = [];
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
+          myArray.push(parseInt(document.getElementById(data).getAttribute('data-value')));
+        }
+
+        function checkAnswer(){
+            var answer=0;
+            for (var i=0; i<myArray.length; i++){
+              answer += myArray[i];
+            }
+
+            window.alert(answer);
+        }
+        </script>
+        <style>
+          .monkey{
+                position: absolute;
+                top: 75px; 
+                left: 1080px;
+                z-index: 2;
+            }
+        </style>
+</head>
+<body>
+    <div style="position: absolute; top: 158px" class="content" id="units"draggable="true" ondragstart="drag(event)" data-value="1"></div>
+    <div style="position:absolute; left:43px; top:158px" class="content" id="units"draggable="true" ondragstart="drag(event)" data-value="1"> </div> 
+    <div style="position:absolute; left:79px; top:158px" class="content" id="units"draggable="true" ondragstart="drag(event)" data-value="1"> </div>
+    <div style="position: absolute; top: 193px" class="content" id="units" draggable="true" ondragstart="drag(event)" data-value="1"></div>
+    <div style="position: absolute; left:43px; top:193px" class="content" id="units" draggable="true" ondragstart="drag(event)" data-value="1"></div>
+    <div style="position: absolute; left:79px; top:193px" class="content" id="units" draggable="true" ondragstart="drag(event)" data-value="1"></div>
+    <div style="position: absolute; top: 229px" class="content" id="units" draggable="true" ondragstart="drag(event)" data-value="1"></div>
+    <div style="position: absolute; left: 43px; top: 229px" class="content" id="units" draggable="true" ondragstart="drag(event)" data-value="1"></div>
+    <div style="position: absolute; left: 79px; top: 229px" class="content" id="units" draggable="true" ondragstart="drag(event)" data-value="1"></div>
+
+    <div style="position: absolute; top: 279px" class="content" id="tens" draggable="true" ondragstart="drag(event)" data-value="10"></div>
+    <div style="position: absolute; left: 43px; top: 279px" class="content" id="tens" draggable="true" ondragstart="drag(event)" data-value="10"></div>
+    <div style="position: absolute; left: 79px; top: 279px" class="content" id="tens" draggable="true" ondragstart="drag(event)" data-value="10"></div>
+    <div style="position: absolute; top: 314px" class="content" id="tens" draggable="true" ondragstart="drag(event)" data-value="10"></div>
+    <div style="position: absolute; left: 43px; top: 314px" class="content" id="tens" draggable="true" ondragstart="drag(event)" data-value="10"></div>
+    <div style="position: absolute; left: 79px; top: 314px" class="content" id="tens" draggable="true" ondragstart="drag(event)" data-value="10"></div>
+    <div style="position: absolute; top: 349px" class="content" id="tens" draggable="true" ondragstart="drag(event)" data-value="10"></div>
+    <div style="position: absolute; left: 43px;top: 349px" class="content" id="tens" draggable="true" ondragstart="drag(event)" data-value="10"></div>
+    <div style="position: absolute; left: 79px; top: 349px" class="content" id="tens" draggable="true" ondragstart="drag(event)" data-value="10"></div>
+
+    <div style="position: absolute; top: 399px" class="content" id="hundred" draggable="true" ondragstart="drag(event)" data-value="100"></div>
+    <div style="position: absolute; left: 43px; top: 399px" class="content" id="hundred" draggable="true" ondragstart="drag(event)" data-value="100"></div>
+    <div style="position: absolute; left: 79px; top: 399px" class="content" id="hundred" draggable="true" ondragstart="drag(event)" data-value="100"></div>
+    <div style="position: absolute; top: 434px" class="content" id="hundred" draggable="true" ondragstart="drag(event)" data-value="100"></div>
+    <div style="position: absolute; left: 43px; top: 434px" class="content" id="hundred" draggable="true" ondragstart="drag(event)" data-value="100"></div>
+    <div style="position: absolute; left: 79px; top: 434px" class="content" id="hundred" draggable="true" ondragstart="drag(event)" data-value="100"></div>
+    <div style="position: absolute; top: 469px" class="content" id="hundred" draggable="true" ondragstart="drag(event)" data-value="100"></div>
+    <div style="position: absolute; left: 43px; top: 469px" class="content" id="hundred" draggable="true" ondragstart="drag(event)" data-value="100"></div>
+    <div style="position: absolute; left: 79px; top: 469px" class="content" id="hundred" draggable="true" ondragstart="drag(event)" data-value="100"></div>
+
+
+
+    
+    <img src="Monkey.jpg" class="monkey" style="width: 150px; height: 150px">
+    <div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" dropzone="move"> Drag your anwer here!</div>
+
+    <button type="submit" name="suubmitbutton" style="color: coral; position: absolute; left:1000px; top:620px;width: 150px; height: 40px; font-size: medium;" onclick="checkAnswer()">Click Here to Submit!</button>
+</body>
+</html>
